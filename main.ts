@@ -33,7 +33,7 @@ export default class MyPlugin extends Plugin {
 			id: 'open-sample-modal-simple',
 			name: 'Open sample modal (simple)',
 			callback: () => {
-				new SampleModal(this.app).open();
+				new SampleModal(this.app, 'Woah!').open();
 			}
 		});
 		// This adds an editor command that can perform some operation on the current editor instance
@@ -41,8 +41,10 @@ export default class MyPlugin extends Plugin {
 			id: 'sample-editor-command',
 			name: 'Sample editor command',
 			editorCallback: (editor: Editor, view: MarkdownView) => {
-				console.log(editor.getSelection());
-				editor.replaceSelection('Sample Editor Command');
+				const text = editor.getValue()
+				view.
+				editor.setValue(text)
+				new SampleModal(this.app, 'Done').open();
 			}
 		});
 		// This adds a complex command that can check whether the current state of the app allows execution of the command
@@ -56,7 +58,7 @@ export default class MyPlugin extends Plugin {
 					// If checking is true, we're simply "checking" if the command can be run.
 					// If checking is false, then we want to actually perform the operation.
 					if (!checking) {
-						new SampleModal(this.app).open();
+						new SampleModal(this.app, 'Woah!').open();
 					}
 
 					// This command will only show up in Command Palette when the check function returns true
@@ -92,17 +94,20 @@ export default class MyPlugin extends Plugin {
 }
 
 class SampleModal extends Modal {
-	constructor(app: App) {
+	private text: string
+
+	constructor(app: App, text: string) {
 		super(app);
+		this.text = text
 	}
 
 	onOpen() {
-		const {contentEl} = this;
-		contentEl.setText('Woah!');
+		const { contentEl } = this;
+		contentEl.setText(this.text);
 	}
 
 	onClose() {
-		const {contentEl} = this;
+		const { contentEl } = this;
 		contentEl.empty();
 	}
 }
@@ -116,7 +121,7 @@ class SampleSettingTab extends PluginSettingTab {
 	}
 
 	display(): void {
-		const {containerEl} = this;
+		const { containerEl } = this;
 
 		containerEl.empty();
 
