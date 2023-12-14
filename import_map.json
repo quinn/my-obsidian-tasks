@@ -1,5 +1,8 @@
 {
 	"imports": {
-		"process": "node:process"
+		"process": "node:process",
+		"builtin-modules": "npm:builtin-modules",
+		"esbuild": "npm:esbuild",
+		"obsidian": "npm:obsidian"
 	}
 }
