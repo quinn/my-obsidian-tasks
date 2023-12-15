@@ -4,6 +4,7 @@
 		"builtin-modules": "npm:builtin-modules",
 		"esbuild": "npm:esbuild",
 		"obsidian": "https://esm.sh/obsidian@1.4.11",
-		"rambda": "https://esm.sh/rambda"
+		"rambda": "https://esm.sh/rambda",
+		"fs": "node:fs"
 	}
 }
