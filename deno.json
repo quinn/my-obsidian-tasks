@@ -1,20 +1,28 @@
 {
-  "tasks": {
-    "dev": "deno run --allow-run --allow-env --allow-read esbuild.config.mjs"
-  },
-  "importMap": "import_map.json",
-  "compilerOptions": {
-    "allowJs": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "lib": [
-      "DOM",
-      "ES5",
-      "ES6",
-      "ES7"
-    ]
-  },
-  "include": [
-    "**/*.ts"
-  ]
+	"tasks": {
+		"dev": "deno run --allow-run --allow-env --allow-read esbuild.config.mjs"
+	},
+	"importMap": "import_map.json",
+	"compilerOptions": {
+		"allowJs": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"lib": [
+			"DOM",
+			"ES5",
+			"ES6",
+			"ES7"
+		]
+	},
+	"include": [
+		"**/*.ts"
+	],
+	"fmt": {
+		"semiColons": false,
+		"useTabs": true,
+		"singleQuote": true
+	},
+  "lint": {
+    "exclude": ["main.js"]
+  }
 }

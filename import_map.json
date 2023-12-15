@@ -3,6 +3,7 @@
 		"process": "node:process",
 		"builtin-modules": "npm:builtin-modules",
 		"esbuild": "npm:esbuild",
-		"obsidian": "npm:obsidian"
+		"obsidian": "https://esm.sh/obsidian@1.4.11",
+		"rambda": "https://esm.sh/rambda"
 	}
 }
