@@ -18,11 +18,12 @@
 		"**/*.ts"
 	],
 	"fmt": {
+		"exclude": ["main.js"],
 		"semiColons": false,
 		"useTabs": true,
 		"singleQuote": true
 	},
-  "lint": {
-    "exclude": ["main.js"]
-  }
+	"lint": {
+		"exclude": ["main.js"]
+	}
 }
