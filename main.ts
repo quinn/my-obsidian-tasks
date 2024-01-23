@@ -40,17 +40,22 @@ export default class MyPlugin extends Plugin {
 						const notesLink = links[1]
 						const nextPath = extractPath(links[2])
 
-						const newPrevPath = reverse(dailyNotes).find((f) =>
-							f.path < prevPath
+						const newPrevPath = reverse(dailyNotes).find(
+							(f) => f.path <= prevPath,
 						)?.path
 
 						if (!newPrevPath) {
 							throw new Error(`No previous path for ${prevPath}`)
 						}
 
-						console.log(nextPath, dailyNotes.map((f) => f.path))
-						const newNextPath = dailyNotes.find((f) => f.path > nextPath )
-							?.path ?? nextPath
+						console.log(
+							nextPath,
+							dailyNotes.map((f) => f.path),
+						)
+						const newNextPath = dailyNotes.find((f) =>
+							f.path > nextPath
+						)?.path ??
+							nextPath
 
 						const newLinks = [
 							makeNoteNavLink(newPrevPath),
@@ -68,11 +73,14 @@ export default class MyPlugin extends Plugin {
 		})
 	}
 
-	onunload() {
-	}
+	onunload() {}
 
 	async loadSettings() {
-		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData())
+		this.settings = Object.assign(
+			{},
+			DEFAULT_SETTINGS,
+			await this.loadData(),
+		)
 	}
 
 	async saveSettings() {
